@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="V_wp24xUfrOxgTuCum0w4EXXaddfeQMPvo5e81oncOg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="monvhh的博客">
+    <meta name="keyword"  content="前端 博客 monvhh hexo angular">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          万物静默入迷 辛波斯卡诗选 (陈黎/张芬龄 译) - monvhh&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://ahappylime.com/2016/10/12/《万物静默入迷》-严肃版读后感/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- alice add. test -->
+    <script type='text/javascript' src="https://ma.mingces.org/api/ma/ma.js"></script>
+  
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">monvhh&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://ahappylime.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg-o.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#读书笔记" title="读书笔记">读书笔记</a>
+                        
+                          <a class="tag" href="/tags/#文艺" title="文艺">文艺</a>
+                        
+                    </div>
+                    <h1>万物静默入迷 辛波斯卡诗选 (陈黎/张芬龄 译)</h1>
+                    <h2 class="subheading">严肃版读后感</h2>
+                    <span class="meta">
+                        Posted by Alice on
+                        2016-10-12
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+
+                <blockquote>
+<p>“辛波斯卡的作品对世界既全力投入，又保持适当距离，清楚地印证了她的基本理念：看似单纯的问题，其实最富有意义。”–诺贝尔文学奖授奖词</p>
+<p>维斯拉瓦·辛波斯卡<br>1923-2012<br>一九二三年生于波兰小镇布宁。她擅长以幽默、诗意的口吻描述严肃主题和日常事物，以诗歌回答生活。是波兰最少欢迎的诗人，也是公认为当代最迷人的诗人之一，享有”诗界莫扎特”的美誉。<br>一九九六年获得诺贝尔文学奖，是文学史上第三位获奖女诗人。<br>二〇一二年二月的一个晚上，辛波斯卡在住宅里安然去世。在她的葬礼上，波兰各地的人们纷纷赶来，向诗人作最后的告别。<br>《万物静默如谜》收录了辛波斯卡各个时期最迷人的七十五首佳作，曾获得《洛杉矶时报》年度最佳图书。<br>在中国，辛波斯卡的作品曾激发几米创作了《向左走，向右走》，也被收入高中语文教材，深受学生喜爱。</p>
+</blockquote>
+<p>这是在封面内侧关于辛波斯卡的介绍，我是在阅读她的诗之前，看的这个介绍，无甚感觉。现如今看，”以幽默、诗意的口吻描述严肃主题和日常事物”，确是如此。<br>在这之前，由于王国维的《人间词话》，我以为诗歌最重要的都是造境。用语言描绘的景造出的境，境越深远越深刻，诗就越好。其次是景美。<br>日常事务是很难说美的，严肃主题更像是讨论，连散文都不能算，更像是杂文。<br>所以在看的过程中，我一直不能理解她的诗，为何被如此推崇。</p>
+<p>然而就在刚刚敲出”诗歌最重要的是造境。用语言描绘的景造出的境，境越深远越深刻，诗就越好。”这句话的时刻，就发现自己的谬误。<br>严肃主题和日常事务不美，可是从日常事务中也可以造出境，造出的境也许更深刻。<br>“一花一世界，一叶一菩提”这种景美境深毕竟少。对于我们这个时代的人而言，一接触大自然的机会少，二这种境甚至有点过于空泛”。<br>这样也就引出的辛波斯卡的高明：<br>她立身于同我们一样的俗世中，用她诗意的眼描绘她的生活，用她诗意的心去诗化生活。倒是让我们更加的感同身受，如同一只上帝之手在写我们的生活。<br>让我们立足于自己的生活而超脱于自己的生活。</p>
+<p>几首我喜欢的诗和简短的分析：</p>
+<blockquote>
+<p>《在一颗小星星下》</p>
+<p>我为称之为必然向巧合致歉。<br> 倘若有任何误谬之处，我向必然致歉。<br> 但愿快乐不会因我视其为己有而生气。<br> 但愿死者耐心包容我逐渐衰退的记忆。<br> 我为自己分分秒秒疏漏万物向时间致歉。<br> 我为将新欢视为初恋向旧爱致歉。<br> 远方的战争啊，原谅我带花回家。<br> 裂开的伤口啊，原谅我扎到手指。<br> 我为我的小步舞曲唱片向在深渊吶喊的人致歉。<br> 我为清晨五点仍熟睡向在火车站候车的人致歉。<br> 被追猎的希望啊，原谅我不时大笑。<br> 沙漠啊，原谅我未及时送上一匙水。<br> 而你，这些年来未曾改变，始终在同一笼中，<br> 目不转睛盯望着空中同一定点的猎鹰啊，<br> 原谅我，虽然你已成为标本。<br> 我为桌子的四只脚向被砍下的树木致歉。<br> 我为简短的回答向庞大的问题致歉。<br> 真理啊，不要太留意我。<br> 尊严啊，请对我宽大为怀。<br> 存在的奥秘啊，请包容我扯落了你衣裾的缝线。<br> 灵魂啊，别谴责我偶尔才保有你。<br> 我为自己不能无所不在向万物致歉。<br> 我为自己无法成为每个男人和女人向所有的人致歉。<br> 我知道在有生之年我无法找到任何理由替自己辩解，<br> 因为我自己即是我自己的阻碍。<br> 噢，言语，别怪我借用了沉重的字眼，<br> 又劳心费神地使它们看似轻松。 </p>
+</blockquote>
+<p> “以诗歌回答生活”。<br> 这首诗让严肃的生活变得诗意。</p>
+<p> “我从哪里来，我要哪里去”，”我存在的价值是什么？”……<br> “真理是什么？”，”真爱是什么？”，”成功是什么？”……<br> “我是不是做的不对？”，”我是不是不够善良？”，”我是不是太懒惰不够努力，是不是浪费很多时间？”……<br> “我是不是忘了我的初心，丢了我的灵魂？”，”这样做是不是很没尊严？”……<br> 这些问题经常会出现在我们的生活中，我们追问很多答案，恨不得这世上有一个规范列表，一个正确答案，然后依此做就心安理得，不会被外界否定谴责。<br> 然而，或许一切都是偶然，或许一切没有答案。<br> 道理是，我们或许应该轻松的面对这些问题，不纠结，不执着，不在意，做最舒服的自己。因为我们只是我们自己。<br> 一句”费心劳神地使它们看似轻松”表达了诗人的想法：它们依旧不轻松，只是努力使它们轻松。<br> 那些不轻松，在这样”莫扎特”的音乐似的表达中，变得有点美，有点浪漫。不那么严肃和沉重了。<br> 就像一个下雨天的晚上对着窗外喝着红酒，思索着白天的工作，以后的安排，有点醉意的，渐渐想到更远的未来，想到更久的过去，慢慢的飘到自己的生活外围的空中，褪去白天的工作压力，还觉得生活似是还挺浪漫的。</p>
+<blockquote>
+<p>《俯视》</p>
+<p>泥巴路上躺着一只死甲虫。<br>  三对小脚小心翼翼地交迭于腹部。<br>  不见死亡的乱象——只有整齐和秩序。<br>  目睹此景的恐惧大大地减轻了，<br>  绝对地方性的规模范畴，从茅草到绿薄荷。<br>  哀伤没有感染性。<br>  天空一片蔚蓝。</p>
+<p>为了我们内心的宁静，它们的死亡似乎比较肤浅，<br>  动物不会消逝，只会死去。<br>  失去——我们希望相信——较少的知觉和世界，<br>  留下——我们觉得似乎如此—— 不怎么悲剧的舞台，<br>  它们卑微的灵魂不会出没于我们的梦境，<br>  它们保持距离，<br>  安分守己。</p>
+<p>所以这只死掉的甲虫躺在路上，<br>  无人哀悼，在阳光下闪闪发光。<br>  瞄它一眼总会引人思索：<br>  它看来一副并未发生什么大不了事情的模样。<br>  重大事件全都留给了我们。<br>  留给我们的生和我们的死。<br>  一个重要性被渲染和夸大的死。</p>
+</blockquote>
+<p>  第一段主要描绘一只甲壳虫的死的状况和它周围的环境，也带出了第二段的”我们”的想法。<br>  它死的安静，整齐而有秩序。不像人类，有表情，有不同的动作，似乎彰显了他的挣扎和痛苦，抑或是也可能是平静。<br>  它们的死亡更肤浅，它们死去并没有失去多少，因为它们不曾拥有多少。<br>  它们的死去，并没有使世界更悲剧，无足轻重，至少我们这么觉得。<br>  我们不会记得它们，它们一直以来离我们很遥远。<br>  它甚至是幸福的，我们会这样想。而我们还要经历这世上的苦难和死亡，比它们更重大的死亡。</p>
+<p>  百度找这首诗copy的时候发现大多数人认为这首诗是对小动物哀悯和表达人类在动物面前的自大。<br>  我却认为这只甲壳虫，更像是人类历史中存在的小人物。<br>  也可以是每个除了”我们”之外的任何人。这个”我们”指我们在意的人。</p>
+<p>  我们太看轻别人，又把自己看的太重，把自己的生看的太重，把自己的人生看的太重，把自己的生活中困难看的太重，把自己的痛苦看的太重，把自己的死亡看的太重。<br>  是一个”重要性被渲染和夸大”的重。<br>  这是人类以自我为中心的世界。</p>
+<p>  我们应当把自己的生，自己的死看的更淡，当你变轻了，或许也就活的更轻松了。<br>  这是我自己接的后话。</p>
+<p>  辛波斯卡很喜欢以日常事物引出一个想法，一种心情。也就是我之前一直以为不够美的地方，比如下文：<br>  《有玩具气球的静物画》</p>
+<blockquote>
+<p>临死之前<br>   我不唤回记忆<br>   我要召回<br>   逝去的事物</p>
+</blockquote>
+<p>   穿过门窗——雨伞<br>   手提箱，手套，外套<br>   这样我可以说：<br>   那些对我有何用处？</p>
+<p>   安全别针，这把梳子或那把梳子<br>   纸玫瑰，细绳，刀子<br>   这样我可以说：<br>   一切无憾了</p>
+<p>   不管你在哪里，钥匙啊<br>   设法准时到达<br>   这样我可以说：<br>   全都生锈了，亲爱的朋友，生锈了</p>
+<p>   证明文件、出入卷和调查表<br>   如云朵般降临<br>   这样我可以说：<br>   太阳下山了</p>
+<p>   噢手表，游出河流<br>   让我握着你<br>   这样我可以说：<br>   别再假装报时了</p>
+<p>   因风松脱的玩具气球<br>   会再度出现<br>   这样我可以说：<br>   这儿没有孩童</p>
+<p>   从洞开的窗口飞离<br>   飞入宽广的世界<br>   让人惊呼：“啊！”<br>   这样我可以哭泣。</p>
+<p>然而实际读完这首诗，却异常的感同身受。<br>在我们临死之前，不要记忆的去面对记忆中的物品。我们只是就事论事。<br>当年找不见的钥匙现在都生锈了，因为都过了好久了；一堆文件已不再需要，因为我已经不在这个世界了；手表不用再报时，因为我已没有时日；而玩具气球，它代表着我童年的记忆，童年的快乐，也没有必要了。<br>嗯，都没有必要了。<br>气球从窗口飞走了，进入更广的世界，进入了别人的世界。<br>而我彻底的失去了。<br>层层递进的情绪。<br>我终于可以放声哭泣了。我终于失去了一切。</p>
+<p>  未完待续</p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2016/10/23/给孩子的诗/" data-toggle="tooltip" data-placement="top" title="给孩子的诗">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/10/09/万物静默如谜-16年/" data-toggle="tooltip" data-placement="top" title="万物静默如谜 辛波斯卡诗选">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#读书笔记" title="读书笔记">读书笔记</a>
+                        
+                          <a class="tag" href="/tags/#文艺" title="文艺">文艺</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/monvhh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/monvhh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; monvhh&#39;s Blog 2017
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ahappylime.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    var _gaId = 'UA-85271445-1';
+    var _gaDomain = 'ahappylime.com';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '956eb265cc3068c607b18028ea4e072a';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- 友盟统计 -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

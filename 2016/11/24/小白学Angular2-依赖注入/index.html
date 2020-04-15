@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="V_wp24xUfrOxgTuCum0w4EXXaddfeQMPvo5e81oncOg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="monvhh的博客">
+    <meta name="keyword"  content="前端 博客 monvhh hexo angular">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          Angular2依赖注入 - monvhh&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://ahappylime.com/2016/11/24/小白学Angular2-依赖注入/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- alice add. test -->
+    <script type='text/javascript' src="https://ma.mingces.org/api/ma/ma.js"></script>
+  
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">monvhh&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://ahappylime.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg-o.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#技术" title="技术">技术</a>
+                        
+                          <a class="tag" href="/tags/#Angular2" title="Angular2">Angular2</a>
+                        
+                          <a class="tag" href="/tags/#学习笔记" title="学习笔记">学习笔记</a>
+                        
+                    </div>
+                    <h1>Angular2依赖注入</h1>
+                    <h2 class="subheading">小白学Angular2</h2>
+                    <span class="meta">
+                        Posted by Alice on
+                        2016-11-24
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Angular中的显性注入器"><span class="post-toc-text">Angular中的显性注入器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#直接使用注入器Injector的方式"><span class="post-toc-text">直接使用注入器Injector的方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#注入器的提供商们："><span class="post-toc-text">注入器的提供商们：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#1-备选的类提供商"><span class="post-toc-text">1. 备选的类提供商</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#2-带依赖的类提供商"><span class="post-toc-text">2. 带依赖的类提供商</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#3-别名类提供商"><span class="post-toc-text">3. 别名类提供商</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#4-值提供商"><span class="post-toc-text">4. 值提供商</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#5-工厂提供商"><span class="post-toc-text">5. 工厂提供商</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#进阶："><span class="post-toc-text">进阶：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#其他规范："><span class="post-toc-text">其他规范：</span></a></li></ol>
+
+                <p>依赖注入用我这个小白的话说，就是定义一个类的时候，将某些依赖作为类的参数，即：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myClass = <span class="function"><span class="keyword">function</span><span class="params">( arg1,arg2)</span></span>&#123;</div><div class="line">    <span class="keyword">this</span>.arg1 = arg1;</div><div class="line">    <span class="keyword">this</span>.arg2 = arg2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>初始化该类的时候，就可以将这些依赖当做参数传递进去。<br>这样，当arg1和arg2改变的时候，我们可以不用动这个myClass内部的代码。</p>
+<p>这个用法在纯js时代就常用，只是现在叫做依赖注入。目的是为了，解耦。</p>
+<p>angular 依赖注入与 我的myClass的不同在于<br>如果arg1和arg2都是类的实例，<br>myClass需要先实例化这些类，然后再调用new myClass(instance1,instance2)。</p>
+<p>而Angular，不需要先实例化每一个依赖注入的类。Angular自己会帮你实例化。但是需要以下几步<br>构造函数参数中有这些类： constructor(heroService:HeroService)<br>这个constructor的类有一个@Component装饰器（这个一般都不必说。。）<br>@Component中有这些类的providers信息，即providers:[HeroService]<br>对于被依赖的那些类，需要在export class之前加上@Injectable()，否则注入器会报错<br>注：服务是可以继承的</p>
+<h4 id="Angular中的显性注入器"><a href="#Angular中的显性注入器" class="headerlink" title="Angular中的显性注入器"></a>Angular中的显性注入器</h4><p>首先这应当是没有必要的，只要正确使用依赖注入，angular自己会管理好注入器的创建和调用。<br>当方式如下：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">injector</span> = ReflectiveInjector.resolveAndCreate([Car, Engine, Tires]);</div><div class="line"><span class="attribute">let car</span> = injector.get(Car);</div></pre></td></tr></table></figure>
+<h4 id="直接使用注入器Injector的方式"><a href="#直接使用注入器Injector的方式" class="headerlink" title="直接使用注入器Injector的方式"></a>直接使用注入器Injector的方式</h4><p>可以直接使用注入器工作，但不方便阅读，难以理解，所以尽量避免：<br>在@Component中添加这些类的providers信息，即providers:[HeroService]<br>在constructor中注入Injector（Injector本身就是一个可注入的服务）<br>然后在Component中通过injector.get方式获得providers提供的服务（即类HeroService）<br>如果get失败会抛出异常，get方法可以带第二个参数，表示如果服务没找到就当做默认值返回。</p>
+<h4 id="注入器的提供商们："><a href="#注入器的提供商们：" class="headerlink" title="注入器的提供商们："></a>注入器的提供商们：</h4><p>令牌token：它作为键值key使用，用于定位依赖值，以及注册这个提供商<br>providers: [Logger]<br>provider definition object：知道如何创建依赖值得配方，有很多方式创建依赖值</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[&#123; provide: Logger, useClass: Logger &#125;]</div></pre></td></tr></table></figure>
+<h6 id="1-备选的类提供商"><a href="#1-备选的类提供商" class="headerlink" title="1. 备选的类提供商"></a>1. 备选的类提供商</h6><figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[&#123; provide: Logger, useClass: BetterLogger &#125;]</div></pre></td></tr></table></figure>
+<p>当请求Logger时，提供BetterLogger<br>（不同于别名，见3）</p>
+<h6 id="2-带依赖的类提供商"><a href="#2-带依赖的类提供商" class="headerlink" title="2. 带依赖的类提供商"></a>2. 带依赖的类提供商</h6><figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[ UserService,</div><div class="line">  &#123; provide: Logger, useClass: EvenBetterLogger &#125;]</div></pre></td></tr></table></figure>
+<p>因为EvenBetterLogger注入了UserService（？？可是为什么不会在EvenBetterLogger中自动调用？？还要在调用EvenBetterLogger的地方在provide声明一下这个服务。）</p>
+<h6 id="3-别名类提供商"><a href="#3-别名类提供商" class="headerlink" title="3. 别名类提供商"></a>3. 别名类提供商</h6><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[ NewLogger,</div><div class="line">  <span class="comment">// Alias OldLogger w/ reference to NewLogger</span></div><div class="line">  &#123; <span class="string">provide:</span> OldLogger, <span class="string">useExisting:</span> NewLogger&#125;]</div></pre></td></tr></table></figure>
+<p>对比1，1会创建两个实例，（？？1在什么时候回用到？？需要创建两个实例）</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[ NewLogger,</div><div class="line">  // <span class="keyword">Not</span> <span class="keyword">aliased</span>! Creates two instances <span class="keyword">of</span> `NewLogger`</div><div class="line">  &#123; provide: OldLogger, useClass: NewLogger&#125;]</div></pre></td></tr></table></figure>
+<h6 id="4-值提供商"><a href="#4-值提供商" class="headerlink" title="4. 值提供商"></a>4. 值提供商</h6><figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[&#123; provide: Logger, useValue: silentLogger &#125;]</div></pre></td></tr></table></figure>
+<p>silentLogger是一个对象</p>
+<h6 id="5-工厂提供商"><a href="#5-工厂提供商" class="headerlink" title="5. 工厂提供商"></a>5. 工厂提供商</h6><p>在需要动态创建依赖值得情况下，使用此方式</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//deps为该服务需要的依赖，通过注入器传入工厂方法</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">let</span> heroServiceProvider =</div><div class="line">  &#123; provide: HeroService,</div><div class="line">    useFactory: heroServiceFactory,</div><div class="line">    deps: [Logger, UserService]</div><div class="line">  &#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let heroServiceFactory = <span class="function"><span class="params">(logger: Logger, userService: UserService)</span> =&gt;</span> &#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> HeroService(logger, userService.user.isAuthorized);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//满足的场景</span></div><div class="line"><span class="keyword">constructor</span>(<span class="params"></span></div><div class="line">  <span class="keyword">private</span> logger: Logger,</div><div class="line">  <span class="keyword">private</span> isAuthorized: <span class="built_in">boolean</span>) &#123; &#125;</div><div class="line"></div><div class="line">getHeroes() &#123;</div><div class="line">  <span class="keyword">let</span> auth = <span class="keyword">this</span>.isAuthorized ? <span class="string">'authorized '</span> : <span class="string">'unauthorized'</span>;</div><div class="line">  <span class="keyword">this</span>.logger.log(<span class="string">`Getting heroes for <span class="subst">$&#123;auth&#125;</span> user.`</span>);</div><div class="line">  <span class="keyword">return</span> HEROES.filter(hero =&gt; <span class="keyword">this</span>.isAuthorized || !hero.isSecret);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注：我们为了重复利用导出一个变量捕获了这个工厂提供商：heroServiceProvider。但也可以不用导出再使用，直接在需要该服务的地方的provider里加上即可，同1、2、3、4<br>依赖注入令牌<br>注入器维护一个内部的令牌-提供商映射表。<br>对于类而言，类名就是这个令牌。<br>非类依赖</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">interface</span> AppConfig &#123;</div><div class="line">  apiEndpoint: <span class="built_in">string</span>;</div><div class="line">  title: <span class="built_in">string</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> HERO_DI_CONFIG: AppConfig = &#123;</div><div class="line">  apiEndpoint: <span class="string">'api.heroes.com'</span>,</div><div class="line">  title: <span class="string">'Dependency Injection'</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>TypeScript接口不是一个有效的令牌。<br>Angular不支持。<br>解释为：在强类型语言中接口是首选的用于查找依赖的主键，再使用依赖注入很奇怪。<br>TS在生成JS之后，不会再有接口。<br>Opaque Token<br>解决方案是使用一个Opaque Token(不透明的令牌）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; OpaqueToken &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">let</span> APP_CONFIG = <span class="keyword">new</span> OpaqueToken(<span class="string">'app.config'</span>);</div></pre></td></tr></table></figure>
+<p>使用OpaqueToken对象注册依赖的提供商</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">providers:</span> [&#123; <span class="string">provide:</span> APP_CONFIG, <span class="string">useValue:</span> HERO_DI_CONFIG &#125;]</div></pre></td></tr></table></figure>
+<p>在@Inject的帮助，将这个配置对象注入到需要的构造函数中</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">constructor</span><span class="params">(@Inject(APP_CONFIG)</span> <span class="title">config</span>:</span> AppConfig) <span class="comment">&#123;</span></div><div class="line">  this.title = config.title;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可选依赖</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; <span class="type">Optional</span> &#125; from '<span class="meta">@angular</span>/core’;</div><div class="line"></div><div class="line">constructor(<span class="meta">@Optional</span>() <span class="keyword">private</span> logger: <span class="type">Logger</span>) &#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.logger) &#123;</div><div class="line">    <span class="keyword">this</span>.logger.log(some_message);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注：当使用@Optional()的时候，需要为空值做准备</p>
+<h4 id="进阶："><a href="#进阶：" class="headerlink" title="进阶："></a>进阶：</h4><p>多级依赖注入器<br>angular的多级依赖注入系统支持与组件树并行的嵌套式注入器<br>大白话，子组件通过冒泡的方式向上查找需要的服务；<br>其次，每个注入器都会把它提供的服务处理成单例，但当我们并不想共享，想为单个组件生成一个实例，则不要把服务注入到父级的以及父级的父级的组件中。</p>
+<h4 id="其他规范："><a href="#其他规范：" class="headerlink" title="其他规范："></a>其他规范：</h4><p>建议为每个服务类都添加@Injectable()，无论是否被依赖，出于为了以后可能被依赖着想以及一致性</p>
+<p>@Component和@Directive @Pipe都是InjectableMetadata的子类型，所以没有必要为component添加@Injectable方法</p>
+<p>注入器可以从编译后的Javascript代码中读取类的元数据，并使用构造函数的参数类型信息来决定注入什么。<br>（不是每个JavaScript类都有元数据。TS编辑器默认忽视元数据。如果tsconfig.json中的emitDecoratorMetadata编译器选项为true，编译器就会在生成的Javascript中为每个至少拥有一个装饰器的类添加元数据。<br>注入器使用一个类的构造元数据来决定依赖类型（？？依赖类型有些什么？？），该构造元数据就是构造函数的参数类型所标识的。TS为任何带有一个装饰器的类生成这样的元数据，任何装饰器都生成。当然，使用一个合适的Injectable装饰器来标识更有意义。</p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2016/11/29/form-name-是form的name属性-还是form里name-name的元素/" data-toggle="tooltip" data-placement="top" title="form.name 是form的name属性 还是form里name=name的元素">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/11/06/twenty-classes/" data-toggle="tooltip" data-placement="top" title="教你读懂文学的27堂课">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#技术" title="技术">技术</a>
+                        
+                          <a class="tag" href="/tags/#Angular2" title="Angular2">Angular2</a>
+                        
+                          <a class="tag" href="/tags/#学习笔记" title="学习笔记">学习笔记</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/monvhh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/monvhh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; monvhh&#39;s Blog 2017
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ahappylime.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    var _gaId = 'UA-85271445-1';
+    var _gaDomain = 'ahappylime.com';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '956eb265cc3068c607b18028ea4e072a';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- 友盟统计 -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

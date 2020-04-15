@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="V_wp24xUfrOxgTuCum0w4EXXaddfeQMPvo5e81oncOg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="monvhh的博客">
+    <meta name="keyword"  content="前端 博客 monvhh hexo angular">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          git I used - monvhh&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://ahappylime.com/2017/03/24/git-I-used/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    <!-- alice add. test -->
+    <script type='text/javascript' src="https://ma.mingces.org/api/ma/ma.js"></script>
+  
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">monvhh&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://ahappylime.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg-o.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#技术" title="技术">技术</a>
+                        
+                          <a class="tag" href="/tags/#TODO" title="TODO">TODO</a>
+                        
+                    </div>
+                    <h1>git I used</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Alice on
+                        2017-03-24
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概念辨析"><span class="post-toc-text">概念辨析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#远程和本地-remote-local"><span class="post-toc-text">远程和本地 remote/local</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#远程分支和本地分支"><span class="post-toc-text">远程分支和本地分支</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#暂存区（staging-area）和索引（index）"><span class="post-toc-text">暂存区（staging area）和索引（index）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#git文件的状态变化周期"><span class="post-toc-text">git文件的状态变化周期</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常用操作"><span class="post-toc-text">常用操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#取得git储藏库-repository"><span class="post-toc-text">取得git储藏库 repository</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看修改"><span class="post-toc-text">查看修改</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分支"><span class="post-toc-text">分支</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#提交和恢复"><span class="post-toc-text">提交和恢复</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#fetch-pull-push"><span class="post-toc-text">fetch pull push</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#合并冲突解决"><span class="post-toc-text">合并冲突解决</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#远程仓库"><span class="post-toc-text">远程仓库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查看日志"><span class="post-toc-text">查看日志</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#gitignore编写规则"><span class="post-toc-text">gitignore编写规则</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取帮助"><span class="post-toc-text">获取帮助</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一些特殊技巧"><span class="post-toc-text">一些特殊技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#cherry-pick"><span class="post-toc-text">cherry-pick</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#stash-储藏"><span class="post-toc-text">stash 储藏</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#深入"><span class="post-toc-text">深入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#merge和rebase"><span class="post-toc-text">merge和rebase</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#远程仓库、服务器管理"><span class="post-toc-text">远程仓库、服务器管理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#多远程仓库管理系统代码"><span class="post-toc-text">多远程仓库管理系统代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他一些报错解决方案"><span class="post-toc-text">其他一些报错解决方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#中英文对照"><span class="post-toc-text">中英文对照</span></a></li></ol>
+
+                <blockquote>
+<p>几乎是我全部所学了</p>
+</blockquote>
+<h3 id="概念辨析"><a href="#概念辨析" class="headerlink" title="概念辨析"></a>概念辨析</h3><h4 id="远程和本地-remote-local"><a href="#远程和本地-remote-local" class="headerlink" title="远程和本地 remote/local"></a>远程和本地 remote/local</h4><p>远程：远程仓库<br>本地：working tree</p>
+<h4 id="远程分支和本地分支"><a href="#远程分支和本地分支" class="headerlink" title="远程分支和本地分支"></a>远程分支和本地分支</h4><p>远程（跟踪）分支：远程仓库上的分支</p>
+<blockquote>
+<p><a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF" target="_blank" rel="external">https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF</a><br>本地分支：本地的分支</p>
+</blockquote>
+<p>可以单独创建远程分支，可以单独创建本地分支。<br>但当本地push上远程仓库之后，远程仓库将会产生对应同名（或者可以指定名字，不确定）的远程分支。<br>同理，在远程创建的分支，在本地fetch之后（或者checkout之后，不确定），在本地产生对应同名（或者可以指定名字，不确定）的本地分支。</p>
+<blockquote>
+<p>默认情况，在不指定push的分支名时，每次push都是push到远程仓库上与当前本地分支对应的远程分支上。</p>
+</blockquote>
+<p>强行建立远程分支和本地分支间的关联</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch --<span class="keyword">set</span>-upstream branch-<span class="keyword">name</span> origin/branch-<span class="keyword">name</span></div></pre></td></tr></table></figure>
+<h4 id="暂存区（staging-area）和索引（index）"><a href="#暂存区（staging-area）和索引（index）" class="headerlink" title="暂存区（staging area）和索引（index）"></a>暂存区（staging area）和索引（index）</h4><p>暂存区：待提交的部分，见git文件的状态变化周期<br>暂存区（staging area）一般存放在“git目录“下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。索引是一个二进制格式的文件，里面存放了与当前暂存内容相关的信息，包括暂存的文件名、文件内容的SHA1哈希串值和文件访问权限，整个索引文件的内容以暂存的文件名进行排 序保存的。</p>
+<h4 id="git文件的状态变化周期"><a href="#git文件的状态变化周期" class="headerlink" title="git文件的状态变化周期"></a>git文件的状态变化周期</h4><p><img src="lifecycle.png" alt="lifecycle"></p>
+<blockquote>
+<p>跟我自己画的图中，modified的角色不太一致，原因是我的角度和官方的角度不同。<br>我的角度modified是针对一个本地文件，无论该文件是否被跟踪（tracked)，它修改了就是修改了。<br>官方的角度是，它被git发现（跟踪之后）修改了，才是修改了。是git认为的改动，而不是文件本身的改动。</p>
+</blockquote>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="取得git储藏库-repository"><a href="#取得git储藏库-repository" class="headerlink" title="取得git储藏库 repository"></a>取得git储藏库 repository</h4><ul>
+<li><code>git init</code> 创建</li>
+<li><code>git clone [url] repo-name</code> 复制已有的仓库</li>
+</ul>
+<h4 id="查看修改"><a href="#查看修改" class="headerlink" title="查看修改"></a>查看修改</h4><p><code>git status</code></p>
+<ul>
+<li><code>git diff</code>  查看尚未暂存（unstaged）的修改<br>比对目前工作目录及暂存（staged）区域的版本，显示尚未存入暂存区的的变更，即unstaged的部分</li>
+<li><code>git diff —cached</code>（或者 —staged）指令 查看暂存区域（staged)与最后一次提交(commit)的差异</li>
+</ul>
+<h4 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h4><ul>
+<li><p><code>git branch</code></p>
+<p>  -b 创建<br>  -d 删除 -D 强制删除</p>
+</li>
+<li><p>查看分支详情</p>
+  <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git remote -vv</div><div class="line">git <span class="keyword">branch </span>-vv</div><div class="line">git <span class="keyword">branch </span>--merged      <span class="comment">#查看已经合并到当前分支的分支</span></div><div class="line">git <span class="keyword">branch </span>--no-merged      <span class="comment">#查看还未合并到当前分支的分支</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>切换分支 <code>git checkout</code>   </p>
+<p>  <code>checkout -b</code> 创建并且切换到一个分支</p>
+  <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b <span class="string">[分支名]</span> <span class="string">[远程名]</span>/<span class="string">[分支名]</span>	    #<span class="string">[远程名]</span>/<span class="string">[分支名]</span> 即远程分支</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="提交和恢复"><a href="#提交和恢复" class="headerlink" title="提交和恢复"></a>提交和恢复</h4><ul>
+<li>如图<br><img src="git_commit_revert.jpeg" alt="commit and revert"></li>
+</ul>
+<ul>
+<li><p>what’s more&gt;&gt;<br>  <a href="http://blog.jobbole.com/87700/" target="_blank" rel="external">http://blog.jobbole.com/87700/</a></p>
+</li>
+<li><p>reset and revert and checkout的区别</p>
+<blockquote>
+<p><a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting" target="_blank" rel="external">https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting</a></p>
+</blockquote>
+<p>  revert更适合在公共分支，<br>  撤销某次提交，并且这个撤销动作是生成一个新的提交，所以不会改变提交历史，以后好追溯以及恢复。<br>  reset是放弃某次提交，git会对reset后的提交进行回收处理</p>
+</li>
+</ul>
+<h4 id="fetch-pull-push"><a href="#fetch-pull-push" class="headerlink" title="fetch pull push"></a>fetch pull push</h4><ul>
+<li><p><code>git fetch</code> 将远程分支下载到本地</p>
+</li>
+<li><p><code>git push</code> 将代码提交到远程分支</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push <span class="tag">&lt;<span class="name">远程主机名</span>&gt;</span> <span class="tag">&lt;<span class="name">本地分支名</span>&gt;</span>:<span class="tag">&lt;<span class="name">远程分支名</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>  <code>git push</code>  本地分支名不写，默认就是当前分支<br>  <code>git push origin master</code>   //省略了远程分支名，有默认对应的远程分支</p>
+<blockquote>
+<p>push详解（还有很多不同的效果）<br><a href="http://www.yiibai.com/git/git_push.html" target="_blank" rel="external">http://www.yiibai.com/git/git_push.html</a></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><code>git pull</code> 将代码从远程分支上拉到本地分支</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull <span class="tag">&lt;<span class="name">远程主机名</span>&gt;</span> <span class="tag">&lt;<span class="name">远程分支名</span>&gt;</span>:<span class="tag">&lt;<span class="name">本地分支名</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>pull详解<br><a href="http://www.yiibai.com/git/git_pull.html" target="_blank" rel="external">http://www.yiibai.com/git/git_pull.html</a></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="合并冲突解决"><a href="#合并冲突解决" class="headerlink" title="合并冲突解决"></a>合并冲突解决</h4><p>先解决文件里的冲突，然后</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span><span class="bash"> file</span></div><div class="line">git commit </div><div class="line">git push</div></pre></td></tr></table></figure>
+<p>深入解决方案</p>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/21215715" target="_blank" rel="external">https://www.zhihu.com/question/21215715</a></p>
+</blockquote>
+<h4 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h4><ul>
+<li><p>添加远程仓库</p>
+<p>  <code>git remote add remote_name url</code></p>
+</li>
+<li><p>更换远程仓库</p>
+<p>  1）修改命令</p>
+  <figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">git </span><span class="string">remote </span><span class="built_in">set-url</span> <span class="string">origin </span><span class="string">remote_git_address	</span><span class="comment">#remote_git_address为目标仓库地址</span></div></pre></td></tr></table></figure>
+<p>  push的时候会报错    <code>fatal: refusing to merge unrelated histories</code></p>
+<p>  解决办法：<code>--allow-unrelated-histories</code></p>
+<p>  2）先删后加</p>
+  <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote rm <span class="keyword">origin</span></div><div class="line">git remote <span class="keyword">add </span><span class="keyword">origin </span>[url]</div></pre></td></tr></table></figure>
+<p>  3）直接修改config文件</p>
+</li>
+</ul>
+<h4 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">log</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>详细用法<br><a href="https://git-scm.com/book/zh-tw/v1/Git-%E5%9F%BA%E7%A4%8E-%E6%AA%A2%E8%A6%96%E6%8F%90%E4%BA%A4%E7%9A%84%E6%AD%B7%E5%8F%B2%E8%A8%98%E9%8C%84" target="_blank" rel="external">https://git-scm.com/book/zh-tw/v1/Git-%E5%9F%BA%E7%A4%8E-%E6%AA%A2%E8%A6%96%E6%8F%90%E4%BA%A4%E7%9A%84%E6%AD%B7%E5%8F%B2%E8%A8%98%E9%8C%84</a></p>
+</blockquote>
+<h4 id="gitignore编写规则"><a href="#gitignore编写规则" class="headerlink" title="gitignore编写规则"></a>gitignore编写规则</h4><ul>
+<li>空白列或者以#開頭的列會被忽略。</li>
+<li>可使用標準的Glob pattern。</li>
+<li>可以/結尾，代表是目錄。</li>
+<li>可使用!符號將特徵反過來使用。<br>Glob pattern就像是shell使用的簡化版正規運算式。 星號（*）匹配零個或多個字元；[abc]匹配中括弧內的任一字元（此例為a、b、c）；問號（?）匹配單一個字元；中括孤內的字以連字符連接（如：[0-9]），用來匹配任何符合該範圍的字（此例為0到9）。</li>
+</ul>
+<p>以下是另一個.gitignore的範例檔案：</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># 註解，會被忽略。</span></div><div class="line"><span class="comment"># 不要追蹤檔名為 .a 結尾的檔案</span></div><div class="line">*.a</div><div class="line"><span class="comment"># 但是要追蹤 lib.a，即使上方已指定忽略所有的 .a 檔案</span></div><div class="line">!<span class="class"><span class="keyword">lib</span>.<span class="title">a</span></span></div><div class="line"><span class="comment"># 只忽略根目錄下的 TODO 檔案。 不包含子目錄下的 TODO</span></div><div class="line">/TODO</div><div class="line"><span class="comment"># 忽略build/目錄下所有檔案</span></div><div class="line">build/</div><div class="line"><span class="comment"># 忽略doc/notes.txt但不包含doc/server/arch.txt</span></div><div class="line">doc/*.txt</div><div class="line"><span class="comment"># ignore all .txt files in the doc/ directory</span></div><div class="line">doc/**<span class="regexp">/*.txt</span></div></pre></td></tr></table></figure>
+<h4 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">help</span> <span class="symbol">&lt;verb&gt;</span> </div><div class="line">git <span class="symbol">&lt;verb&gt;</span> —<span class="keyword">help</span> </div><div class="line">man git-<span class="symbol">&lt;verb&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="一些特殊技巧"><a href="#一些特殊技巧" class="headerlink" title="一些特殊技巧"></a>一些特殊技巧</h3><h4 id="cherry-pick"><a href="#cherry-pick" class="headerlink" title="cherry-pick"></a>cherry-pick</h4><p>恢复某次提交,或者说应用某次提交（commit）<br>比如将已经提交的commit放到另一个分支上</p>
+<blockquote>
+<p>同时进行几个项目+hotfix的时候常出现这种问题，还有被人合并漏掉或者删掉了自己的文件时也可以重新commit</p>
+</blockquote>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git cherry-pick &lt;commit <span class="built_in">id</span>&gt;</div></pre></td></tr></table></figure>
+<h4 id="stash-储藏"><a href="#stash-储藏" class="headerlink" title="stash 储藏"></a>stash 储藏</h4><p>先把目前的修改储藏起来，然后继续做其他的事情，比如需要切到新分支工作但不想有一次不完整（此次工作还未做完）的提交；比如拉取远程代码，避免冲突（冲突呆会再解决）；比如hotfix（正常情况会走hotfix分支）等等情况。</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash  / git <span class="keyword">pop</span></div></pre></td></tr></table></figure>
+<p>git stash pop冲突解决（因为如果有冲突，默认pop不出来）</p>
+<blockquote>
+<p><a href="http://wongyouth.github.io/blog/2014/03/28/solve-conflict-caused-by-git-stash/" target="_blank" rel="external">http://wongyouth.github.io/blog/2014/03/28/solve-conflict-caused-by-git-stash/</a></p>
+</blockquote>
+<p>为了避免拉取远程分支的冲突，以下方式也可以<br>如果不想丢失本地修改的情况下checkout 一个branch 或者想pull without conflict<br>git checkout -b /git branch (会基于目前的代码生成一个branch）然后 git reset —hard （这样修改保存在另外一个分支上）</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash <span class="built_in">drop</span>	<span class="meta">#删除</span></div></pre></td></tr></table></figure>
+<h3 id="深入"><a href="#深入" class="headerlink" title="深入"></a>深入</h3><h4 id="merge和rebase"><a href="#merge和rebase" class="headerlink" title="merge和rebase"></a>merge和rebase</h4><ul>
+<li><p>merge</p>
+  <figure class="highlight cos"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">merge</span> branch_name</div></pre></td></tr></table></figure>
+<p>  是将branch_name分支合并到当前分支</p>
+</li>
+<li><p>rebase</p>
+<p>  rebase 命令，就可以把在一个分支里提交的改变移到另一个分支里重放一遍。</p>
+  <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase --onto <span class="keyword">master</span> <span class="title">server</span> client</div></pre></td></tr></table></figure>
+<p>  这好比在说：“取出 client 分支，找出 client 分支和 server 分支的共同祖先之后的变化，然后把它们在 master 上重演一遍”。</p>
+</li>
+<li><p>merge还是rebase？</p>
+<p>  首先，你要跟其他人共同协作，不可避免要使用到merge或者rebase。<br>  rebase会保持提交历史是一条直线，没有分支，而merge会导致很多的分支互相交叉。</p>
+<p>  rebase有坑！！但是<br>  一个原则，一旦分支中的提交对象发布到公共仓库，就千万不要对该分支进行衍合操作。（会导致后人合并时发现明明一样的代码，同一次的提交，但是git当做完全不同的两次提交而成为冲突的文件，没有自动合并。）</p>
+<blockquote>
+<p><a href="https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E8%A1%8D%E5%90%88" target="_blank" rel="external">https://git-scm.com/book/zh/v1/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%9A%84%E8%A1%8D%E5%90%88</a></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="远程仓库、服务器管理"><a href="#远程仓库、服务器管理" class="headerlink" title="远程仓库、服务器管理"></a>远程仓库、服务器管理</h4><p>TODO 待研究</p>
+<blockquote>
+<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000</a></p>
+</blockquote>
+<h4 id="多远程仓库管理系统代码"><a href="#多远程仓库管理系统代码" class="headerlink" title="多远程仓库管理系统代码"></a>多远程仓库管理系统代码</h4><p>一个用来pull 一个用来push，另外可能有测试分支<br>这样那个专门用来pull的远程仓库，就不会随意被更改，权限好管理，只要给一个人权限即可，保护该远程仓库。另外一个仓库随便更改。<br>如<a href="http://www.cnblogs.com/cnblogsfans/p/5075073.html" target="_blank" rel="external">http://www.cnblogs.com/cnblogsfans/p/5075073.html</a>  中，origin仓库用来pull，feature分支用来开发，feature往origin上合并，单向操作，可能能避免冲突（不确定其优缺点，但之前公司是这么做的）</p>
+<p>在远程端进行同步，是否通过subtree？TODO 待研究</p>
+<blockquote>
+<p><a href="https://git-scm.com/book/en/v1/Git-Tools-Subtree-Merging" target="_blank" rel="external">https://git-scm.com/book/en/v1/Git-Tools-Subtree-Merging</a><br><a href="http://www.alivepea.me/linux/git-subtree/" target="_blank" rel="external">http://www.alivepea.me/linux/git-subtree/</a></p>
+</blockquote>
+<h3 id="其他一些报错解决方案"><a href="#其他一些报错解决方案" class="headerlink" title="其他一些报错解决方案"></a>其他一些报错解决方案</h3><ul>
+<li><p>If no other git process is currently running, this probably means a git process crashed in this repository earlier</p>
+<blockquote>
+<p><a href="http://blog.csdn.net/wh_19910525/article/details/8161365" target="_blank" rel="external">http://blog.csdn.net/wh_19910525/article/details/8161365</a></p>
+</blockquote>
+<p>  <code>rm -f ./.git/index.lock</code></p>
+</li>
+</ul>
+<h3 id="中英文对照"><a href="#中英文对照" class="headerlink" title="中英文对照"></a>中英文对照</h3><blockquote>
+<p>可能在命令行或者提示/报错信息中或者github上会遇到对应的英文，而不知具体的意思</p>
+</blockquote>
+<p>repository 储存库<br>track    追踪档案<br>stage    暂存<br>commit    提交<br>pull    拉<br>push    推<br>clone    复制/克隆<br>rebase    衍合（变基）<br>merge    合并</p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/04/24/诡异的正则（一）/" data-toggle="tooltip" data-placement="top" title="诡异的正则（一）">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/01/22/MongoDB-初接触/" data-toggle="tooltip" data-placement="top" title="MongoDB 初接触">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#技术" title="技术">技术</a>
+                        
+                          <a class="tag" href="/tags/#TODO" title="TODO">TODO</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/monvhh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/monvhh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; monvhh&#39;s Blog 2017
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://ahappylime.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    var _gaId = 'UA-85271445-1';
+    var _gaDomain = 'ahappylime.com';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '956eb265cc3068c607b18028ea4e072a';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- 友盟统计 -->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
