@@ -17,7 +17,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://ahappylime.com/2016/11/29/form-name-是form的name属性-还是form里name-name的元素/">
+    <link rel="canonical" href="https://monvhh.github.io/mysite/2016/11/29/form-name-是form的name属性-还是form里name-name的元素/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -29,14 +29,14 @@
     <link rel="stylesheet" href="/css/highlight.css">
 
     <!-- Custom Fonts -->
-    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
     css'>
     -->
 
@@ -154,7 +154,7 @@
     <!-- Main Content -->
     
 <!-- Image to hack wechat -->
-<!-- <img src="http://ahappylime.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="https://monvhh.github.io/mysite/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
@@ -206,13 +206,13 @@
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.forms[<span class="number">0</span>];</div><div class="line"><span class="string">\\或者</span></div><div class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"formid"</span>);</div></pre></td></tr></table></figure>
 <p>如果我想获取form标签上的属性，比如name，比如action，比如enctype</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var formName</span> = form.name;</div><div class="line"><span class="attribute">var formAction</span> = form.action;</div></pre></td></tr></table></figure>
-<p><a href="http://www.w3schools.com/jsref/prop_form_name.asp" target="_blank" rel="external">http://www.w3schools.com/jsref/prop_form_name.asp</a></p>
+<p><a href="https://www.w3schools.com/jsref/prop_form_name.asp" target="_blank" rel="external">https://www.w3schools.com/jsref/prop_form_name.asp</a></p>
 <p>如果我们想获取form表单里的元素呢？</p>
 <figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form <span class="built_in">name</span>=<span class="string">"formName"</span> <span class="built_in">action</span>=<span class="string">"actionUrl"</span>&gt;</div><div class="line">	<span class="built_in">Name</span>:&lt;input <span class="built_in">name</span>=<span class="string">"name"</span>&gt;</div><div class="line">	&lt;br&gt;</div><div class="line">	<span class="built_in">Action</span>:&lt;input <span class="built_in">name</span>=<span class="string">"action"</span>&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> elemName = <span class="keyword">form</span>.name;</div><div class="line"><span class="comment">//或者</span></div><div class="line"><span class="keyword">var</span> elemName = <span class="keyword">form</span>.elements[0];</div><div class="line"></div><div class="line"><span class="keyword">var</span> elemAction = <span class="keyword">form</span>.action;</div><div class="line"><span class="comment">//或者</span></div><div class="line"><span class="keyword">var</span> elemAction = <span class="keyword">form</span>.elements[1];</div></pre></td></tr></table></figure>
 <p>问题来了，在这种情况下，form.name到底是什么？是form的name属性值，还是form表单里的name=”name”的元素？<br>还有action等等。</p>
 <p>事实证明，是form表单里的name=”name”的元素。</p>
-<p>why？！and how to solve it?<br><a href="http://www.jibbering.com/faq/names/index.html" target="_blank" rel="external">http://www.jibbering.com/faq/names/index.html</a><br>唯一找的资料是这篇，还不知道这是什么网站。</p>
+<p>why？！and how to solve it?<br><a href="https://www.jibbering.com/faq/names/index.html" target="_blank" rel="external">https://www.jibbering.com/faq/names/index.html</a><br>唯一找的资料是这篇，还不知道这是什么网站。</p>
 <p>没有找到解决办法。。我目前只能逃避这个问题，如果遇到form表单里有我想取的form的属性，就将值置为空字符串，至少不要返回一个dom节点。</p>
 <p>等到我对这个问题有进一步的了解和解决办法，再来更新这个问题。</p>
 
@@ -273,7 +273,7 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
+                        <li><a href="https://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
                     
                 </ul>
                 
@@ -300,9 +300,9 @@
       s.parentNode.insertBefore(o, s);
     }
 </script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<!-- anchor-js, Doc:https://bryanbraun.github.io/anchorjs/ -->
 <script>
-    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
           visible: 'always',
           placement: 'right',
@@ -404,11 +404,11 @@
 -->
 <!--
     <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+        async("https://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
             hljs.initHighlightingOnLoad();
         })
     </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
 -->
 
 
@@ -416,7 +416,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://ahappylime.com/js/jquery.tagcloud.js",function(){
+        async("https://monvhh.github.io/mysite/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -428,7 +428,7 @@
 
 <!--fastClick.js -->
 <script>
-    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
@@ -440,7 +440,7 @@
 
 <script>
     var _gaId = 'UA-85271445-1';
-    var _gaDomain = 'ahappylime.com';
+    var _gaDomain = 'monvhh.github.io/mysite';
 
     // Originial
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -473,7 +473,7 @@
 
 
 <!-- 友盟统计 -->
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
 
 
 <!-- Side Catalog -->

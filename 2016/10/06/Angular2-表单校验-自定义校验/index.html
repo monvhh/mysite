@@ -17,7 +17,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://ahappylime.com/2016/10/06/Angular2-表单校验-自定义校验/">
+    <link rel="canonical" href="https://monvhh.github.io/mysite/2016/10/06/Angular2-表单校验-自定义校验/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -29,14 +29,14 @@
     <link rel="stylesheet" href="/css/highlight.css">
 
     <!-- Custom Fonts -->
-    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
     css'>
     -->
 
@@ -154,7 +154,7 @@
     <!-- Main Content -->
     
 <!-- Image to hack wechat -->
-<!-- <img src="http://ahappylime.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="https://monvhh.github.io/mysite/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
@@ -220,7 +220,7 @@
 <p>该校验函数返回最终校验结果，同上面不用传参的校验的返回结果。</p>
 <h3 id="自定义校验指令"><a href="#自定义校验指令" class="headerlink" title="自定义校验指令"></a>自定义校验指令</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Directive</span>(&#123;</div><div class="line"><span class="symbol">  selector:</span> <span class="string">'[forbiddenName]'</span>,</div><div class="line"><span class="symbol">  providers:</span> [&#123;<span class="string">provide:</span> NG_VALIDATORS, <span class="string">useExisting:</span> ForbiddenValidatorDirective, <span class="string">multi:</span> <span class="literal">true</span>&#125;]</div><div class="line">&#125;)</div><div class="line">export <span class="class"><span class="keyword">class</span> <span class="title">ForbiddenValidatorDirective</span> <span class="keyword">implements</span> <span class="title">Validator</span>, <span class="title">OnChanges</span> &#123;</span></div><div class="line">  <span class="meta">@Input</span>() <span class="string">forbiddenName:</span> string;</div><div class="line">  <span class="keyword">private</span> valFn = Validators.nullValidator;</div><div class="line">  ngOnChanges(<span class="string">changes:</span> SimpleChanges): <span class="keyword">void</span> &#123;</div><div class="line">    const change = changes[<span class="string">'forbiddenName'</span>];</div><div class="line">    <span class="keyword">if</span> (change) &#123;</div><div class="line">      const <span class="string">val:</span> string | RegExp = change.currentValue;</div><div class="line">      const re = val <span class="keyword">instanceof</span> RegExp ? val : <span class="keyword">new</span> RegExp(val, <span class="string">'i'</span>);</div><div class="line">      <span class="keyword">this</span>.valFn = forbiddenNameValidator(re);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">this</span>.valFn = Validators.nullValidator;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  validate(<span class="string">control:</span> AbstractControl): &#123;[<span class="string">key:</span> string]: any&#125; &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.valFn(control);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>ForbiddenValidatorDirective必须为一个有validate方法的类。</p>
-<h3 id="待研究"><a href="#待研究" class="headerlink" title="待研究"></a>待研究</h3><p><a href="http://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html" target="_blank" rel="external">http://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html</a><br>这篇文章中讲到两种方式，所以最初我想分类为：函数方式和类的方式（同目前的自定义校验指令）<br>这篇文章还推荐使用类的方式。<br>但是第一种方式没看到他实现指令的具体代码，angular官网也并没有提到，还有第二种方式我还不确定除了用于指令，还能不能用于reactive表单，在组件内使用。<br>Google也没搜到其他讲到这个的文档，等angular2官网吧。</p>
+<h3 id="待研究"><a href="#待研究" class="headerlink" title="待研究"></a>待研究</h3><p><a href="https://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html" target="_blank" rel="external">https://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html</a><br>这篇文章中讲到两种方式，所以最初我想分类为：函数方式和类的方式（同目前的自定义校验指令）<br>这篇文章还推荐使用类的方式。<br>但是第一种方式没看到他实现指令的具体代码，angular官网也并没有提到，还有第二种方式我还不确定除了用于指令，还能不能用于reactive表单，在组件内使用。<br>Google也没搜到其他讲到这个的文档，等angular2官网吧。</p>
 <p>还有@Directive也有待研究，水很深。</p>
 
 
@@ -278,7 +278,7 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
+                        <li><a href="https://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
                     
                 </ul>
                 
@@ -305,9 +305,9 @@
       s.parentNode.insertBefore(o, s);
     }
 </script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<!-- anchor-js, Doc:https://bryanbraun.github.io/anchorjs/ -->
 <script>
-    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
           visible: 'always',
           placement: 'right',
@@ -409,11 +409,11 @@
 -->
 <!--
     <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+        async("https://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
             hljs.initHighlightingOnLoad();
         })
     </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
 -->
 
 
@@ -421,7 +421,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://ahappylime.com/js/jquery.tagcloud.js",function(){
+        async("https://monvhh.github.io/mysite/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -433,7 +433,7 @@
 
 <!--fastClick.js -->
 <script>
-    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
@@ -445,7 +445,7 @@
 
 <script>
     var _gaId = 'UA-85271445-1';
-    var _gaDomain = 'ahappylime.com';
+    var _gaDomain = 'monvhh.github.io/mysite';
 
     // Originial
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -478,7 +478,7 @@
 
 
 <!-- 友盟统计 -->
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
 
 
 <!-- Side Catalog -->

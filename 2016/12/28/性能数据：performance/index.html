@@ -17,7 +17,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://ahappylime.com/2016/12/28/性能数据：performance/">
+    <link rel="canonical" href="https://monvhh.github.io/mysite/2016/12/28/性能数据：performance/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -29,14 +29,14 @@
     <link rel="stylesheet" href="/css/highlight.css">
 
     <!-- Custom Fonts -->
-    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
     css'>
     -->
 
@@ -154,7 +154,7 @@
     <!-- Main Content -->
     
 <!-- Image to hack wechat -->
-<!-- <img src="http://ahappylime.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="https://monvhh.github.io/mysite/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
@@ -208,16 +208,16 @@
 <p>为什么要在意这个分类？因为兼容不一样！</p>
 <h3 id="Navigation-Timing-API"><a href="#Navigation-Timing-API" class="headerlink" title="Navigation Timing API"></a>Navigation Timing API</h3><p>所谓 Navigation Timing ，浏览器帮你统计好的各种时间，如下图</p>
 <p><img src="timing-overview.png" alt="timing-overview"></p>
-<p>具体每个字段的解释可以参考w3c文档或者阮一峰的博客，如下：<br><a href="https://www.w3.org/TR/navigation-timing/" target="_blank" rel="external">https://www.w3.org/TR/navigation-timing/</a><br><a href="http://javascript.ruanyifeng.com/bom/performance.html" target="_blank" rel="external">http://javascript.ruanyifeng.com/bom/performance.html</a></p>
+<p>具体每个字段的解释可以参考w3c文档或者阮一峰的博客，如下：<br><a href="https://www.w3.org/TR/navigation-timing/" target="_blank" rel="external">https://www.w3.org/TR/navigation-timing/</a><br><a href="https://javascript.ruanyifeng.com/bom/performance.html" target="_blank" rel="external">https://javascript.ruanyifeng.com/bom/performance.html</a></p>
 <p>我根据这些字段获取了以下的时间段：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">const performances = &#123;</div><div class="line">    plt: performance<span class="selector-class">.timing</span><span class="selector-class">.loadEventStart</span> - performance<span class="selector-class">.timing</span><span class="selector-class">.navigationStart</span>,<span class="comment">//pageloadtime页面加载耗时</span></div><div class="line">    dns: performance<span class="selector-class">.timing</span><span class="selector-class">.domainLookupEnd</span> - performance<span class="selector-class">.timing</span><span class="selector-class">.domainLookupStart</span>,<span class="comment">//域名解析的耗时</span></div><div class="line">    tcp: performance<span class="selector-class">.timing</span><span class="selector-class">.connectEnd</span> - performance<span class="selector-class">.timing</span><span class="selector-class">.connectStart</span>,<span class="comment">//TCP的耗时</span></div><div class="line">    ttfb: performance<span class="selector-class">.timing</span><span class="selector-class">.responseStart</span> - performance<span class="selector-class">.timing</span><span class="selector-class">.navigationStart</span>,<span class="comment">//读取页面第一个字节之前的耗时</span></div><div class="line">    rqt: performance<span class="selector-class">.timing</span><span class="selector-class">.responseEnd</span> - performance<span class="selector-class">.timing</span><span class="selector-class">.requestStart</span>,<span class="comment">//从发出请求到收到全部字节的时间</span></div><div class="line">    dit: performance<span class="selector-class">.timing</span><span class="selector-class">.domInteractive</span> - performance<span class="selector-class">.timing</span><span class="selector-class">.domLoading</span>,<span class="comment">//dom interpret time: dom解析时间，不包括资源，到DOMContentLoaded为止</span></div><div class="line">    dlt: performance<span class="selector-class">.timing</span><span class="selector-class">.domComplete</span> - performance<span class="selector-class">.timing</span><span class="selector-class">.domLoading</span><span class="comment">//dom加载时间，包括所有资源</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="User-Timing-API"><a href="#User-Timing-API" class="headerlink" title="User Timing API"></a>User Timing API</h3><p>所谓User Timing，就是用户自己去统计各时间段。<br>通过mark，clearmarks，measure，clearMeasures等获取自己想要统计的时间段。<br>具体使用可以参考阮一峰的博客：<br><a href="http://javascript.ruanyifeng.com/bom/performance.html" target="_blank" rel="external">http://javascript.ruanyifeng.com/bom/performance.html</a></p>
+<h3 id="User-Timing-API"><a href="#User-Timing-API" class="headerlink" title="User Timing API"></a>User Timing API</h3><p>所谓User Timing，就是用户自己去统计各时间段。<br>通过mark，clearmarks，measure，clearMeasures等获取自己想要统计的时间段。<br>具体使用可以参考阮一峰的博客：<br><a href="https://javascript.ruanyifeng.com/bom/performance.html" target="_blank" rel="external">https://javascript.ruanyifeng.com/bom/performance.html</a></p>
 <p><code>getEntries</code>好像不算是User Timing API。<br>参考w3c文档：<br><a href="https://www.w3.org/TR/performance-timeline/#dom-performance-getentries" target="_blank" rel="external">https://www.w3.org/TR/performance-timeline/#dom-performance-getentries</a></p>
 <p>而User Timing API的w3c文档在这里：<br><a href="https://www.w3.org/TR/user-timing/" target="_blank" rel="external">https://www.w3.org/TR/user-timing/</a></p>
 <p>但在开发者自己去统计各时间段的时候，很可能会用到<code>getEntries</code>方法</p>
 <h3 id="getEntries"><a href="#getEntries" class="headerlink" title="getEntries()"></a>getEntries()</h3><p>通过<code>getEntries()</code>，可以获得该页面所有资源的加载过程各阶段的时刻及其他信息。<br>比如：</p>
 <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">performances.rlt = <span class="string">[]</span>;//每个对象请求时间</div><div class="line">        for (var i = <span class="number">0</span>; i &lt; performance.getEntries().length; i++) &#123;</div><div class="line">            performances.rlt.push(&#123;</div><div class="line">                name: performance.getEntries()<span class="string">[i]</span>.name,</div><div class="line">                startTime: performance.getEntries()<span class="string">[i]</span>.startTime,</div><div class="line">                duration: performance.getEntries()<span class="string">[i]</span>.duration</div><div class="line">            &#125;)</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<h3 id="兼容的问题"><a href="#兼容的问题" class="headerlink" title="兼容的问题"></a>兼容的问题</h3><p>实时参考：<br><a href="http://caniuse.com/#search=performance" target="_blank" rel="external">http://caniuse.com/#search=performance</a></p>
+<h3 id="兼容的问题"><a href="#兼容的问题" class="headerlink" title="兼容的问题"></a>兼容的问题</h3><p>实时参考：<br><a href="https://caniuse.com/#search=performance" target="_blank" rel="external">https://caniuse.com/#search=performance</a></p>
 <p>我在这个问题上纠结了很久，有以下经验：</p>
 <ul>
 <li>如caniuse网站上，Navigation Timing API 支持高版本的Safari；而User Timing API不支持Safari。</li>
@@ -287,7 +287,7 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
+                        <li><a href="https://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
                     
                 </ul>
                 
@@ -314,9 +314,9 @@
       s.parentNode.insertBefore(o, s);
     }
 </script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<!-- anchor-js, Doc:https://bryanbraun.github.io/anchorjs/ -->
 <script>
-    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
           visible: 'always',
           placement: 'right',
@@ -418,11 +418,11 @@
 -->
 <!--
     <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+        async("https://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
             hljs.initHighlightingOnLoad();
         })
     </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
 -->
 
 
@@ -430,7 +430,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://ahappylime.com/js/jquery.tagcloud.js",function(){
+        async("https://monvhh.github.io/mysite/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -442,7 +442,7 @@
 
 <!--fastClick.js -->
 <script>
-    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
@@ -454,7 +454,7 @@
 
 <script>
     var _gaId = 'UA-85271445-1';
-    var _gaDomain = 'ahappylime.com';
+    var _gaDomain = 'monvhh.github.io/mysite';
 
     // Originial
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -487,7 +487,7 @@
 
 
 <!-- 友盟统计 -->
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
 
 
 <!-- Side Catalog -->

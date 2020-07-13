@@ -17,7 +17,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://ahappylime.com/2017/04/24/诡异的正则（一）/">
+    <link rel="canonical" href="https://monvhh.github.io/mysite/2017/04/24/诡异的正则（一）/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -29,14 +29,14 @@
     <link rel="stylesheet" href="/css/highlight.css">
 
     <!-- Custom Fonts -->
-    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
     css'>
     -->
 
@@ -154,7 +154,7 @@
     <!-- Main Content -->
     
 <!-- Image to hack wechat -->
-<!-- <img src="http://ahappylime.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="https://monvhh.github.io/mysite/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
@@ -226,14 +226,14 @@
 <p>依旧同6一样</p>
 <hr>
 <p>差不多了，我就研究了以上这些诡异的情况，得出的结论</p>
-<h4 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h4><p>*、+等是贪婪匹配，如果你不分组，比如<code>/\w*/</code>，得到的结果会是<code>&#39;abcd&#39;</code>，也就是尽可能的去匹配，匹配最多。<br>贪婪匹配在分组这种情况下，由于贪婪匹配的实现逻辑，导致它覆写了上一次获取到的分组，所以得到的是最后一个。<br>解释见：<br><a href="http://stackoverflow.com/questions/17393683/regex-only-capturing-last-instance-of-capture-group-in-match" target="_blank" rel="external">http://stackoverflow.com/questions/17393683/regex-only-capturing-last-instance-of-capture-group-in-match</a></p>
-<p>贪婪匹配的具体逻辑见<br><a href="http://blog.csdn.net/lxcnn/article/details/4756030" target="_blank" rel="external">http://blog.csdn.net/lxcnn/article/details/4756030</a></p>
+<h4 id="贪婪匹配"><a href="#贪婪匹配" class="headerlink" title="贪婪匹配"></a>贪婪匹配</h4><p>*、+等是贪婪匹配，如果你不分组，比如<code>/\w*/</code>，得到的结果会是<code>&#39;abcd&#39;</code>，也就是尽可能的去匹配，匹配最多。<br>贪婪匹配在分组这种情况下，由于贪婪匹配的实现逻辑，导致它覆写了上一次获取到的分组，所以得到的是最后一个。<br>解释见：<br><a href="https://stackoverflow.com/questions/17393683/regex-only-capturing-last-instance-of-capture-group-in-match" target="_blank" rel="external">https://stackoverflow.com/questions/17393683/regex-only-capturing-last-instance-of-capture-group-in-match</a></p>
+<p>贪婪匹配的具体逻辑见<br><a href="https://blog.csdn.net/lxcnn/article/details/4756030" target="_blank" rel="external">https://blog.csdn.net/lxcnn/article/details/4756030</a></p>
 <p>更多的信息：<br><a href="https://blog.mariusschulz.com/2014/06/03/why-using-in-regular-expressions-is-almost-never-what-you-actually-want" target="_blank" rel="external">https://blog.mariusschulz.com/2014/06/03/why-using-in-regular-expressions-is-almost-never-what-you-actually-want</a></p>
 <p>上面这个链接中的一个例子<br>字符串：<code>Points: [x1,y1] and [x2,y2]</code><br>正则：<code>\[(.*),(.*)\]</code><br>第一个分组会尽可能的长，导致第二个分组只能获取到一个”y2]”</p>
 <p>我原本以为会得到两个都很长的分组，这样的话这两个分组会有相交的部分。事实是因为贪婪的原因，压缩了第二个分组，由此我可以理解覆盖这个问题。需要更深入的研究。</p>
 <p>关于非贪婪匹配，未必会得到最小的字符串<br>JS犀牛书里有个例子<br>字符串<code>&quot;aaaab&quot;</code><br>贪婪匹配<code>/a+b/</code>和非贪婪匹配<code>/a+?b/</code><br>得到的结果都是<code>&quot;aaaab&quot;</code><br>关于非贪婪的重复有这么一句话：“这是因为正则表达式的模式匹配总是会寻找字符串中第一个可能匹配的位置。由于该匹配是从字符串的第一个字符开始的，因此在这里不考虑它的子串中更小的匹配”</p>
 <h4 id="全局匹配g"><a href="#全局匹配g" class="headerlink" title="全局匹配g"></a>全局匹配g</h4><p>2和4中，g做了些什么？<br>对于g而言，g前面的正则就是一个单一的分组逻辑，意即：根据g前面的正则匹配整个字符串，符合该正则的都加入到其返回的数组中。</p>
-<p>详细参考<a href="http://2ality.com/2013/08/regexp-g.html" target="_blank" rel="external">http://2ality.com/2013/08/regexp-g.html</a></p>
+<p>详细参考<a href="https://2ality.com/2013/08/regexp-g.html" target="_blank" rel="external">https://2ality.com/2013/08/regexp-g.html</a></p>
 <p>以上也回答了<br>6和7的问题。<br>即：在有g的情况下，无视分组信息</p>
 <h4 id="exec和match的区别"><a href="#exec和match的区别" class="headerlink" title="exec和match的区别"></a>exec和match的区别</h4><p>对于match而言，不带g的匹配是返回一个数组，第一个字符串是匹配的字符串，后面的元素是匹配的分组的数据，如果没有分组，就没有。<br>带g的匹配是返回一个数组，每个元素都是匹配的字符串，无视分组；</p>
 <p>对exec而言，是否带g都是返回完整的匹配信息，即包括分组匹配的字符串；<br>但是它如何解决我上面说的”二维数组”的问题？</p>
@@ -301,7 +301,7 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
+                        <li><a href="https://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
                     
                 </ul>
                 
@@ -328,9 +328,9 @@
       s.parentNode.insertBefore(o, s);
     }
 </script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<!-- anchor-js, Doc:https://bryanbraun.github.io/anchorjs/ -->
 <script>
-    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
           visible: 'always',
           placement: 'right',
@@ -432,11 +432,11 @@
 -->
 <!--
     <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+        async("https://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
             hljs.initHighlightingOnLoad();
         })
     </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
 -->
 
 
@@ -444,7 +444,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://ahappylime.com/js/jquery.tagcloud.js",function(){
+        async("https://monvhh.github.io/mysite/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -456,7 +456,7 @@
 
 <!--fastClick.js -->
 <script>
-    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
@@ -468,7 +468,7 @@
 
 <script>
     var _gaId = 'UA-85271445-1';
-    var _gaDomain = 'ahappylime.com';
+    var _gaDomain = 'monvhh.github.io/mysite';
 
     // Originial
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -501,7 +501,7 @@
 
 
 <!-- 友盟统计 -->
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
 
 
 <!-- Side Catalog -->

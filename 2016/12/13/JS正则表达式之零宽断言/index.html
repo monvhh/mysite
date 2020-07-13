@@ -17,7 +17,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://ahappylime.com/2016/12/13/JS正则表达式之零宽断言/">
+    <link rel="canonical" href="https://monvhh.github.io/mysite/2016/12/13/JS正则表达式之零宽断言/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -29,14 +29,14 @@
     <link rel="stylesheet" href="/css/highlight.css">
 
     <!-- Custom Fonts -->
-    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
     css'>
     -->
 
@@ -154,7 +154,7 @@
     <!-- Main Content -->
     
 <!-- Image to hack wechat -->
-<!-- <img src="http://ahappylime.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="https://monvhh.github.io/mysite/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
 <!-- Post Header -->
@@ -228,7 +228,7 @@
 </tbody>
 </table>
 <h4 id="例子如下："><a href="#例子如下：" class="headerlink" title="例子如下："></a>例子如下：</h4><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str1 = <span class="string">"bedroom"</span>;</div><div class="line"><span class="keyword">var</span> str2 = <span class="string">"bedding"</span>;</div><div class="line"><span class="keyword">var</span> reBed = /(bed(?=room))<span class="comment">///在我们捕获bed这个字符串时，抢先去看接下来的字符串是不是room</span></div><div class="line">alert(reBed.<span class="keyword">test</span>(str1));<span class="comment">//true</span></div><div class="line">alert(reBed.<span class="keyword">test</span>(str2))<span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> str1 = <span class="string">"bedroom"</span>;</div><div class="line"><span class="keyword">var</span> str2 = <span class="string">"bedding"</span>;</div><div class="line"><span class="keyword">var</span> reBed = /(bed(?!room))/  <span class="comment">//要来它后面不能是room</span></div><div class="line">alert(reBed.<span class="keyword">test</span>(str1))<span class="comment">//false</span></div><div class="line">alert(reBed.<span class="keyword">test</span>(str2))<span class="comment">//true</span></div></pre></td></tr></table></figure>
-<p>看起来很简单是不？<br>如果你想做一个匹配，字符串 <a href="http://www.baidu.com?from=monvhh=endbalabla，我要得到" target="_blank" rel="external">http://www.baidu.com?from=monvhh=endbalabla，我要得到</a> <code>?from=monvhh=end</code>中的monvhh，当然这个monvhh可能是任意的字符串</p>
+<p>看起来很简单是不？<br>如果你想做一个匹配，字符串 <a href="https://www.baidu.com?from=monvhh=endbalabla，我要得到" target="_blank" rel="external">https://www.baidu.com?from=monvhh=endbalabla，我要得到</a> <code>?from=monvhh=end</code>中的monvhh，当然这个monvhh可能是任意的字符串</p>
 <p>想通过一次正则匹配就得到<code>?from=</code>和<code>=end</code>中间的字符串，正则如此强大，一定可以。<br>那么我需要去匹配<code>?from=</code>和<code>=end</code>，并且我还不要它们。只有零宽断言可以做到了！</p>
 <figure class="highlight nimrod"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = /(?=\?<span class="keyword">from</span>=)\w+(?=<span class="keyword">end</span>)/</div></pre></td></tr></table></figure>
 <p>好简单，好方便是不是！<br>然而失败了。。。</p>
@@ -247,7 +247,7 @@
 <p>为什么？<code>monvhh</code>符合<code>\w</code>啊。</p>
 <p>原因是：零宽断言只占位，不消费。即<br>匹配完<code>(?=\?from=)</code>之后的字符串是<code>?from=monvhh=endbalabla</code>；</p>
 <blockquote>
-<p>注意：此字符串的意思是：待匹配字符串。<br>如果你拿<code>(?=\?from=)</code>单独去test字符串<code>http://www.baidu.com?from=monvhh=endbalabla</code>,是true，如果用该字符串去match该正则，只能得到一个空字符串，对，还不是null。<br>因为零宽断言就是只匹配，但并不得到这个匹配的结果。这就是我为什么用它的原因嘛，我需要判断字符串里有你，但是我不要你。<br>也就是只占位，不消费。它验证过，但是并没有把它消费掉。</p>
+<p>注意：此字符串的意思是：待匹配字符串。<br>如果你拿<code>(?=\?from=)</code>单独去test字符串<code>https://www.baidu.com?from=monvhh=endbalabla</code>,是true，如果用该字符串去match该正则，只能得到一个空字符串，对，还不是null。<br>因为零宽断言就是只匹配，但并不得到这个匹配的结果。这就是我为什么用它的原因嘛，我需要判断字符串里有你，但是我不要你。<br>也就是只占位，不消费。它验证过，但是并没有把它消费掉。</p>
 </blockquote>
 <p>所以，此时继续匹配<code>\w+</code>就会报错，匹配<code>\S+</code>却可以，应为此时的字符串里还有?和=。</p>
 <p>这就是“先行断言”这个词的关键了。<br>它就像一个if语句，它只判断，在我当前位置之后，有某个字符串。但并不改变这个字符串，也不对结果有任何影响。<br>而其他正则匹配，是一个处理原始字符串的过程（不改变这个字符串，但是改变匹配之后的结果result）。</p>
@@ -267,7 +267,7 @@
 <figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> reg,str;</div><div class="line"><span class="comment">//正则reg，待匹配字符串str；</span></div><div class="line"><span class="comment">//reg是一串针对连续位置的匹配规则，我在强调连续两个字，断言也不能；</span></div><div class="line"><span class="comment">//str是一串连续的字符串；</span></div><div class="line"></div><div class="line"><span class="built_in">var</span> reg_pointer = <span class="number">0</span>,str_pointer = <span class="number">0</span>;</div><div class="line"><span class="comment">//指针reg_pointer;指针str_pointer;</span></div><div class="line"><span class="comment">//分别为正则reg，待匹配字符串str的指针，初始为0，即首位；</span></div><div class="line"><span class="built_in">var</span> str_length = str.length,reg_length = reg.length;</div><div class="line"><span class="comment">//此处reg.length仅表示正则reg的占位，先把零宽断言也算，方便对比；</span></div><div class="line"></div><div class="line"><span class="built_in">var</span> result;</div><div class="line"><span class="comment">//result = str.substring(str_pointer,str_length);所以str_pointer可以表达我说的削减的意思；</span></div><div class="line"><span class="comment">//了解正则表达式中的贪婪、惰性、支配性之后，知道我所说的削减，其实就是贪婪性匹配的特质！！</span></div><div class="line"></div><div class="line"><span class="keyword">for</span>( str_pointer &lt; str.length &amp;&amp; reg_pointer &lt; reg_length )&#123;</div><div class="line">	<span class="built_in">var</span> <span class="built_in">bool</span> = str[str_pointer]匹配reg[reg_pointer];</div><div class="line">	<span class="comment">//reg[reg_pointer]仅表示正则中的第reg_pointer的占位，先把零宽断言也算，方便对比;</span></div><div class="line"></div><div class="line">	</div><div class="line">	<span class="keyword">if</span>( reg[reg_pointer] != 先行零宽断言 &amp;&amp; <span class="built_in">bool</span> === <span class="literal">false</span> )&#123;</div><div class="line">		<span class="comment">//重新再来，该轮匹配失败，从接下来的字符串再继续匹配整条正则</span></div><div class="line">		reg_pointer=<span class="number">0</span>;</div><div class="line">		str_pointer++;</div><div class="line">		<span class="comment">//与先行零宽断言的一致，匹配失败都是一样的</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>( reg[reg_pointer] != 先行零宽断言 &amp;&amp; <span class="built_in">bool</span> === <span class="literal">true</span> )&#123;</div><div class="line">		<span class="comment">//继续匹配，削减</span></div><div class="line">		reg_pointer++;</div><div class="line">		str_pointer++;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">if</span>( reg[reg_pointer] == 先行零宽断言 &amp;&amp; <span class="built_in">bool</span> === <span class="literal">false</span> )&#123;</div><div class="line">		<span class="comment">//重新再来，该轮匹配失败，从接下来的字符串再继续匹配整条正则</span></div><div class="line">		reg_pointer=<span class="number">0</span>;</div><div class="line">		str_pointer++;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>( reg[reg_pointer] == 先行零宽断言 &amp;&amp; <span class="built_in">bool</span> === <span class="literal">true</span> )&#123;</div><div class="line">		<span class="comment">//继续匹配，但不削减</span></div><div class="line">		reg_pointer++;</div><div class="line">		<span class="comment">//所以字符串的指针不变，但是正则进行到下一个占位了。</span></div><div class="line">		<span class="comment">//这就是零宽断言不占位的真谛了。</span></div><div class="line">	&#125;</div><div class="line">	result = str.substring(str_pointer,str_length);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//匹配失败</span></div><div class="line"><span class="comment">//没有reg_length-1是因为如果最后一次还是匹配成功，还会再做一次reg_pointer++;</span></div><div class="line"><span class="keyword">if</span>( reg_pointer &lt; reg_length )&#123;</div><div class="line">	result = <span class="literal">undefined</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">return</span> result;</div></pre></td></tr></table></figure>
 <h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>所以它实现不了我的想法。</p>
 <p>最后我通过分组的方式，然后match数组中的第一个分组得到的结果。如下：</p>
-<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = /\?<span class="keyword">from</span>=(\w+)=<span class="keyword">end</span>/;</div><div class="line"><span class="keyword">var</span> <span class="keyword">result</span> = <span class="string">'http://www.baidu.com?from=monvhh=endbalabla'</span>.match(reg);</div><div class="line"><span class="keyword">var</span> whatiwant = <span class="keyword">result</span>[<span class="number">1</span>];<span class="comment">//monvhh</span></div></pre></td></tr></table></figure>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = /\?<span class="keyword">from</span>=(\w+)=<span class="keyword">end</span>/;</div><div class="line"><span class="keyword">var</span> <span class="keyword">result</span> = <span class="string">'https://www.baidu.com?from=monvhh=endbalabla'</span>.match(reg);</div><div class="line"><span class="keyword">var</span> whatiwant = <span class="keyword">result</span>[<span class="number">1</span>];<span class="comment">//monvhh</span></div></pre></td></tr></table></figure>
 <h3 id="TODO-如何在正则中达到跳过的效果。"><a href="#TODO-如何在正则中达到跳过的效果。" class="headerlink" title="TODO 如何在正则中达到跳过的效果。"></a>TODO 如何在正则中达到跳过的效果。</h3><p>意即，破坏我在解析正则匹配实现过程中指出的，</p>
 <blockquote>
 <p>reg是一串针对连续位置的匹配规则，我在强调连续两个字，断言也不能；</p>
@@ -279,7 +279,7 @@
 <p>如果是跳过前面和后面的，可以用后行断言匹配前面，匹配成功但不返回，先行断言匹配后面的，匹配成功但不返回。成功实现要匹配但返回结果却跳过的需求。</p>
 <p>然后如果要跳过的是中间的呢？</p>
 <blockquote>
-<p>本文参考<br><a href="http://www.cnblogs.com/rubylouvre/archive/2010/03/09/1681222.html" target="_blank" rel="external">http://www.cnblogs.com/rubylouvre/archive/2010/03/09/1681222.html</a><br><a href="http://fxck.it/post/50558232873" target="_blank" rel="external">http://fxck.it/post/50558232873</a></p>
+<p>本文参考<br><a href="https://www.cnblogs.com/rubylouvre/archive/2010/03/09/1681222.html" target="_blank" rel="external">https://www.cnblogs.com/rubylouvre/archive/2010/03/09/1681222.html</a><br><a href="https://fxck.it/post/50558232873" target="_blank" rel="external">https://fxck.it/post/50558232873</a></p>
 </blockquote>
 
 
@@ -341,7 +341,7 @@
                 <ul class="list-inline">
 
                     
-                        <li><a href="http://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
+                        <li><a href="https://www.lizhi.fm/944150/" target="_blank">透明的小角落</a></li>
                     
                 </ul>
                 
@@ -368,9 +368,9 @@
       s.parentNode.insertBefore(o, s);
     }
 </script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<!-- anchor-js, Doc:https://bryanbraun.github.io/anchorjs/ -->
 <script>
-    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
           visible: 'always',
           placement: 'right',
@@ -472,11 +472,11 @@
 -->
 <!--
     <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+        async("https://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
             hljs.initHighlightingOnLoad();
         })
     </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
 -->
 
 
@@ -484,7 +484,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://ahappylime.com/js/jquery.tagcloud.js",function(){
+        async("https://monvhh.github.io/mysite/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -496,7 +496,7 @@
 
 <!--fastClick.js -->
 <script>
-    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
         var $nav = document.querySelector("nav");
         if($nav) FastClick.attach($nav);
     })
@@ -508,7 +508,7 @@
 
 <script>
     var _gaId = 'UA-85271445-1';
-    var _gaDomain = 'ahappylime.com';
+    var _gaDomain = 'monvhh.github.io/mysite';
 
     // Originial
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -541,7 +541,7 @@
 
 
 <!-- 友盟统计 -->
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " https://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260890659'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260890659' type='text/javascript'%3E%3C/script%3E"));</script>
 
 
 <!-- Side Catalog -->
